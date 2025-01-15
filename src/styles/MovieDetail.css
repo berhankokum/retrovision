@@ -1,0 +1,247 @@
+/* Genel Stil Ayarları */
+.movie-detail {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Film Başlık ve Görsel */
+  .movie-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-header img {
+    width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .movie-info {
+    flex: 1;
+  }
+  
+  .movie-info h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .movie-info p {
+    margin: 8px 0;
+    font-size: 1.1em;
+  }
+  
+  .movie-info strong {
+    color: #555;
+  }
+  
+  /* Kullanıcı İşlemleri */
+  .user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-actions button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .rate-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .rate-section input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .comment-section textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    resize: vertical;
+  }
+  
+  .comment-section button {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment-section button:hover {
+    background-color: #218838;
+  }
+  
+  /* Yorumlar */
+  .comments {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comments h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .comment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .comment-item p {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .comment-item strong {
+    color: #007bff;
+  }
+  
+  .comment-item .delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment-item .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 768px) {
+    .movie-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .movie-header img {
+      width: 100%;
+      max-width: 400px;
+    }
+  
+    .movie-info h1 {
+      font-size: 1.8em;
+      text-align: center;
+    }
+  
+    .user-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .rate-section {
+      flex-direction: column;
+    }
+  
+    .rate-section input {
+      width: 100%;
+    }
+  }
+  .comment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  

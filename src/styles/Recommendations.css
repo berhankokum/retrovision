@@ -1,0 +1,66 @@
+.recommendations-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.mood-buttons {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.mood-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mood-buttons button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.mood-buttons button.selected {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.movie-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.movie-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.movie-card p {
+    font-size: 1rem;
+    color: #555;
+}

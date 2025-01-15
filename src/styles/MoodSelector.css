@@ -1,0 +1,26 @@
+.mood-selector {
+    margin: 20px;
+    text-align: center;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mood-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mood-button:hover {
+    background-color: #0056b3;
+}
