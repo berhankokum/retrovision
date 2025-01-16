@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import '../styles/DailyMovies.css';
 
 const DailyMovies = () => {
-    const [city, setCity] = useState('Istanbul'); // Varsayılan şehir
-    const [weather, setWeather] = useState(null); // Hava durumu bilgisi
-    const [movies, setMovies] = useState([]); // Film listesi
-    const [loading, setLoading] = useState(false); // Yüklenme durumu
+    const [city, setCity] = useState('Istanbul'); 
+    const [weather, setWeather] = useState(null); 
+    const [movies, setMovies] = useState([]); 
+    const [loading, setLoading] = useState(false); 
 
-    const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY; // TMDB API anahtarınız
-    const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY; // OpenWeather API anahtarınız
+    const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY; 
+    const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY; 
 
     // Hava durumuna göre film türü eşleştirme
     const getGenreByWeather = (weatherDescription) => {
@@ -16,10 +16,10 @@ const DailyMovies = () => {
         if (weatherDescription.includes('rain')) return [18, 10749]; // Yağmurlu: Drama, Romantik
         if (weatherDescription.includes('clouds')) return [9648, 53]; // Bulutlu: Gizem, Gerilim
         if (weatherDescription.includes('snow')) return [10751, 14]; // Karlı: Aile, Fantastik
-        return [28]; // Diğer durumlar: Aksiyon
+        return [28]; 
     };
 
-    // OpenWeather API'den hava durumu bilgisini çek
+    
     const fetchWeather = async () => {
         try {
             const response = await fetch(
@@ -28,14 +28,14 @@ const DailyMovies = () => {
             const data = await response.json();
             setWeather(data);
             console.log(data);
-            return data.weather[0].description; // Hava durumu açıklaması
+            return data.weather[0].description; 
         } catch (error) {
             console.error('Hava durumu alınırken bir hata oluştu:', error);
             setWeather(null);
         }
     };
 
-    // TMDB API'den filmleri çek
+    
     const fetchMovies = async (genres) => {
         try {
             const response = await fetch(
@@ -44,28 +44,28 @@ const DailyMovies = () => {
                 )}&sort_by=popularity.desc`
             );
             const data = await response.json();
-            setMovies(data.results.slice(0, 5)); // İlk 5 filmi al
+            setMovies(data.results.slice(0, 5)); 
         } catch (error) {
             console.error('Filmler alınırken bir hata oluştu:', error);
             setMovies([]);
         }
     };
 
-    // Şehir seçimi yapıldığında veya sayfa yüklendiğinde veri çek
+   
     useEffect(() => {
         const fetchData = async () => {
             if (!city) return;
             setLoading(true);
-            const weatherDescription = await fetchWeather(); // Hava durumu açıklamasını al
+            const weatherDescription = await fetchWeather(); 
             if (weatherDescription) {
-                const genres = getGenreByWeather(weatherDescription); // Film türlerini belirle
-                await fetchMovies(genres); // Filmleri al
+                const genres = getGenreByWeather(weatherDescription); 
+                await fetchMovies(genres); 
             }
             setLoading(false);
         };
 
         fetchData();
-    }, [city]); // Şehir değiştiğinde veriyi tekrar çek
+    }, [city]); 
 
     return (
         <div className="daily-movies-container">

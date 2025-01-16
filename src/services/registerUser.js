@@ -3,10 +3,10 @@ import { account } from '../appwrite';
 const registerUser = async (email, password, name) => {
     try {
         const response = await account.create(
-            'unique()', // Benzersiz bir userId oluşturur
-            email,      // Kullanıcının e-posta adresi
-            password,   // Kullanıcının şifresi
-            name        // Kullanıcının adı
+            'unique()', 
+            email,    
+            password,   
+            name       
         );
 
         console.log('Kayıt başarılı:', response);

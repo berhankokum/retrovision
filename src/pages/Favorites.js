@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { account, databases } from "../appwrite"; // Appwrite konfigürasyonu
+import { account, databases } from "../appwrite"; 
 import "../styles/Favorites.css";
 import {  Query } from "appwrite";
 const Favorites = () => {
@@ -8,14 +8,14 @@ const Favorites = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchFavorites = async () => {    // Favori filmleri getir
+    const fetchFavorites = async () => {    
       try {
-        const session = await account.get(); // Kullanıcı oturumunu al
+        const session = await account.get();
         const userId = session.$id;
 
         const response = await databases.listDocuments(
-          "6786af350005fff9f376", // Veritabanı ID'si
-          "6786ce93000db270abd3", // Koleksiyon ID'si
+          "6786af350005fff9f376", 
+          "677e8663003123c5abbf", 
           [Query.equal("user_id", userId)]
         );
 

@@ -1,4 +1,4 @@
-/* Favoriler Sayfası Genel Ayarları */
+
 .favorites {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -15,14 +15,14 @@
   color: #444;
 }
 
-/* Favoriler Listesi */
+
 .favorites-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-/* Favori Film Kartı */
+
 .favorite-item {
   background-color: #fff;
   border-radius: 10px;
@@ -54,7 +54,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Tasarım */
+
 @media (max-width: 768px) {
   .favorites h1 {
     font-size: 2em;

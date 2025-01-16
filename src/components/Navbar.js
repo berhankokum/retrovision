@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { account } from '../appwrite';
 const Navbar = ({ user, onLogout }) => {
-    const [dropdownVisible, setDropdownVisible] = useState(false); // Dropdown görünürlüğü
+    const [dropdownVisible, setDropdownVisible] = useState(false); 
     const navigate = useNavigate();
 
 const logoutUser = async () => {
     try {
         await account.deleteSession('current');
-        localStorage.removeItem("user"); // LocalStorage'daki kullanıcı verisini temizle
-        window.location.reload(); // Sayfayı yeniden yükle (isteğe bağlı)
+        localStorage.removeItem("user"); 
+        window.location.reload(); 
     } catch (error) {
         console.error('Çıkış hatası:', error);
         alert(`Çıkış sırasında bir hata oluştu: ${error.message}`);
@@ -36,7 +36,7 @@ const logoutUser = async () => {
             ) : (
                 <div className="navbar-user">
                     <img
-                        src="/assets/user.png" // Kullanıcı simgesi
+                        src="/assets/user.png" 
                         alt="Kullanıcı"
                         className="user-icon"
                         onClick={() => setDropdownVisible(!dropdownVisible)}

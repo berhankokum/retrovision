@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import MovieList from '../components/MovieList'; // Film listesi bileşeni
-//import MoodSelector from '../components/MoodSelector'; // Mood seçici bileşeni
 import { useNavigate } from 'react-router-dom';
 import '../styles/Recommendations.css';
 const Recommendations = () => {
-    const [selectedMood, setSelectedMood] = useState(''); // Kullanıcı ruh halini saklar
-    const [movies, setMovies] = useState([]); // Önerilen filmleri saklar
-    const [loading, setLoading] = useState(false); // Yüklenme durumu
+    const [selectedMood, setSelectedMood] = useState(''); 
+    const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(false); 
 
-    const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY; // TMDB API anahtarınız
+    const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY; 
 
     // Ruh haline göre film türü eşleştirme
     const getGenreByMood = (mood) => {
@@ -30,7 +28,7 @@ const Recommendations = () => {
         }
     };
 
-    // TMDB API'den filmleri çek
+   
     const fetchMovies = async (genreId) => {
         try {
             setLoading(true);
@@ -38,7 +36,7 @@ const Recommendations = () => {
                 `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_API_KEY}&with_genres=${genreId}&sort_by=popularity.desc`
             );
             const data = await response.json();
-            setMovies(data.results.slice(0, 4)); // İlk 4 filmi al
+            setMovies(data.results.slice(0, 4)); 
             setLoading(false);
         } catch (error) {
             console.error('Filmler alınırken bir hata oluştu:', error);
@@ -47,12 +45,12 @@ const Recommendations = () => {
         }
     };
 
-    // Kullanıcı bir ruh hali seçtiğinde tetiklenir
+   
     const handleMoodSelect = (mood) => {
-        setSelectedMood(mood); // Ruh halini sakla
-        const genreId = getGenreByMood(mood); // Ruh haline uygun tür ID'si
+        setSelectedMood(mood); 
+        const genreId = getGenreByMood(mood);
         if (genreId) {
-            fetchMovies(genreId); // Filmleri al
+            fetchMovies(genreId); 
         }
     };
 

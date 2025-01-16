@@ -43,7 +43,7 @@ const Home = ({ user }) => {
                     Film ve dizi dünyasına adım atın, keşfedin ve eğlenin. Şimdi kayıt olun ve
                     favori filmlerinizi bulun!
                 </p>
-                {!user && ( // Eğer kullanıcı giriş yapmamışsa butonu göster
+                {!user && ( 
                     <button onClick={() => (window.location.href = '/register')}>Şimdi Kayıt Ol</button>
                 )}
             </div>

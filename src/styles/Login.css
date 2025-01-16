@@ -64,15 +64,15 @@
     background: #218838;
 }
 
-/* Mesajlar */
+
 .auth-message {
     margin-top: 15px;
-    color: #dc3545; /* Kırmızı */
+    color: #dc3545; 
     font-size: 0.9rem;
     text-align: center;
 }
 
-/* Link */
+
 .auth-container a {
     color: #007bff;
     text-decoration: none;

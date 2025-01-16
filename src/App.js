@@ -8,10 +8,11 @@ import Recommendations from './pages/Recommendations';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import LogoutButton from './components/LogoutButton';
-import Account from './pages/Account';
+//import Account from './pages/Account';
 import Favorites from './pages/Favorites';
 import MovieDetail from './components/MovieDetails';
 import logoutUser from './services/logoutUser';
+//import AdminPanel from './pages/AdminPanel';
 const App = () => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState('');
@@ -20,14 +21,18 @@ const App = () => {
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            setUser(JSON.parse(storedUser)); // Kullanıcıyı state'e ata
         }
     }, []);
 
-    const handleLogin = (userData) => {
+    const handleLogin = (userData, rememberMe) => {
         setUser(userData);
-        localStorage.setItem("user", JSON.stringify(userData)); // Kullanıcı bilgisini sakla
+        // Eğer 'rememberMe' seçeneği işaretlenmişse, bilgileri localStorage'a kaydet
+        if (rememberMe) {
+            localStorage.setItem("user", JSON.stringify(userData));
+        }
     };
+
 
     const handleLogout = () => {
         setUser(null);

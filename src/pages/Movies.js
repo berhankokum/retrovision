@@ -4,15 +4,15 @@ import '../styles/Movies.css';
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [filter, setFilter] = useState(''); // Filtreleme
-    const [sort, setSort] = useState('popularity.desc'); // Sıralama
-    const [page, setPage] = useState(1); // Sayfa numarası (isteğe bağlı)
-   const navigate = useNavigate(); // Yönlendirme hook'u
+    const [filter, setFilter] = useState(''); 
+    const [sort, setSort] = useState('popularity.desc');
+    const [page, setPage] = useState(1); 
+   const navigate = useNavigate(); 
 
-    const API_KEY = process.env.REACT_APP_TMDB_API_KEY; // TMDb API anahtarınızı buraya ekleyin
+    const API_KEY = process.env.REACT_APP_TMDB_API_KEY; 
     const BASE_URL = 'https://api.themoviedb.org/3';
 
-    // TMDb API'den film verilerini çek
+    
     const fetchMovies = async () => {
         try {
             const response = await fetch(
@@ -26,14 +26,14 @@ const Movies = () => {
     };
 
     const handleMovieClick = (id) => {
-        navigate(`/movie/${id}`); // Dinamik rotaya yönlendir
+        navigate(`/movie/${id}`); 
     };
 
     useEffect(() => {
         fetchMovies();
-    }, [sort, page]); // Sıralama veya sayfa değiştiğinde API'yi tekrar çağır
+    }, [sort, page]); 
 
-    // Filtreleme işlemi
+ 
     const filteredMovies = movies.filter((movie) =>
         movie.title.toLowerCase().includes(filter.toLowerCase())
     );

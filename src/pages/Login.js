@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
         e.preventDefault();
         const session = await loginUser(email, password);
         if (session) {
-            onLogin(session); // Üst bileşene oturum bilgisini ilet
+            onLogin(session); 
         }
     };
 
