@@ -27,7 +27,6 @@ const logoutUser = async () => {
             <li onClick={() => navigate("/movies")}>Filmler</li>
             <li onClick={() => navigate("/daily-movies")}>Günün Filmleri</li>
             <li onClick={() => navigate("/recommendations")}>Film Önerileri</li>
-
             {!user ? (
                 <>
                     <li onClick={() => navigate("/login")}>Giriş Yap</li>

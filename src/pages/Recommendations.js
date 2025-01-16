@@ -59,7 +59,7 @@ const Recommendations = () => {
             <h1>Film Önerileri</h1>
             <p>Ruh halinizi seçin ve size uygun filmleri önerelim!</p>
             <div className="mood-buttons">
-                {['mutlu', 'üzgün', 'heyecanlı', 'romantik', 'korkmuş', 'macera'].map((mood) => (
+                {['mutlu', 'üzgün', 'heyecanlı', 'romantik', 'gergin', 'macera'].map((mood) => (
                     <button
                         key={mood}
                         onClick={() => handleMoodSelect(mood)}

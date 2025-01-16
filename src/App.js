@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -7,39 +7,28 @@ import DailyMovies from './pages/DailyMovies';
 import Recommendations from './pages/Recommendations';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import LogoutButton from './components/LogoutButton';
-//import Account from './pages/Account';
 import Favorites from './pages/Favorites';
 import MovieDetail from './components/MovieDetails';
-import logoutUser from './services/logoutUser';
-//import AdminPanel from './pages/AdminPanel';
+
 const App = () => {
     const [user, setUser] = useState(null);
-    const [token, setToken] = useState('');
-    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
-            setUser(JSON.parse(storedUser)); // Kullanıcıyı state'e ata
+            setUser(JSON.parse(storedUser));
         }
     }, []);
 
-    const handleLogin = (userData, rememberMe) => {
+    const handleLogin = (userData) => {
         setUser(userData);
-        // Eğer 'rememberMe' seçeneği işaretlenmişse, bilgileri localStorage'a kaydet
-        if (rememberMe) {
-            localStorage.setItem("user", JSON.stringify(userData));
-        }
+        localStorage.setItem("user", JSON.stringify(userData)); // Kullanıcı bilgisini sakla
     };
-
 
     const handleLogout = () => {
         setUser(null);
         localStorage.removeItem("user"); // Kullanıcı bilgisini temizle
     };
-
-
 
     return (
         <Router>

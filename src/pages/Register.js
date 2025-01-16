@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import registerUser from '../services/registerUser';
 import "../styles/Register.css";
 const Register = () => {
@@ -7,10 +8,12 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState("");
     const [username, setUsername] = useState("");
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
         registerUser(email, password, username);
+        navigate('/login'); 
     };
 
     return (

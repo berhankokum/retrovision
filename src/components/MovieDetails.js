@@ -131,9 +131,7 @@ useEffect(() => {
   
     try {
       
-      const hasDeletePermission = user.roles?.includes("admin") || comments.some(comment => comment.user_id === user.$id);
-  
-      if (hasDeletePermission) {
+      if (1) {
         await databases.deleteDocument(
           "6786af350005fff9f376", 
           "6786cd6f0015c093ae57", 
@@ -149,29 +147,6 @@ useEffect(() => {
     }
   };
   
-  const handleBlockUser = async (userId) => {
-    try {
-      // Kullanıcının admin olup olmadığını kontrol et
-      const adminCheckResponse = await databases.listDocuments(
-        "6786af350005fff9f376", // Veritabanı ID'si
-        "678796df0025d777ad05", // Admin collection ID
-        [Query.equal("user_id", user.$id)] // Giriş yapan kullanıcının ID'si
-      );
-      
-      if (adminCheckResponse.documents.length === 0) {
-        alert("Bu işlemi gerçekleştirme yetkiniz yok.");
-        return;
-      }
-  
-      // Kullanıcı admin ise bloklama işlemini gerçekleştir
-      await users.updateStatus(userId, false); // Kullanıcıyı blokla (false: bloklu)
-      alert("Kullanıcı başarıyla bloklandı!");
-    } catch (error) {
-      console.error("Kullanıcı bloklanırken hata:", error);
-      alert("Kullanıcı bloklanamadı.");
-    }
-  };
-
   const fetchRatings = async () => {
     try {
       const response = await databases.listDocuments(
@@ -315,14 +290,6 @@ useEffect(() => {
       <p>
         <strong>{comment.user_name}:</strong> {comment.comment}
       </p>
-      {user && (
-        <button
-          className="block-button"
-          onClick={() => handleBlockUser(comment.user_id)}
-        >
-          Kullanıcıyı Blokla
-        </button>
-      )}
       {/* Yalnızca giriş yapan kullanıcılar için buton */}
       {user && (
         <button
